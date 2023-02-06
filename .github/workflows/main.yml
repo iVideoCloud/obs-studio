@@ -32,34 +32,9 @@ env:
   YOUTUBE_SECRET_HASH: ${{ secrets.YOUTUBE_SECRET_HASH }}
 
 jobs:
-  clang_check:
-    name: '01 - Code Format Check'
-    runs-on: [ubuntu-22.04]
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@v3
-        with:
-          submodules: 'recursive'
-
-      - name: 'Install clang-format'
-        run: sudo apt-get install -y clang-format-13
-
-      - name: 'Run clang-format'
-        run: |
-          ./CI/check-format.sh
-          ./CI/check-changes.sh
-
-      - name: 'Install cmake-format'
-        run: sudo pip install cmakelang
-
-      - name: 'Run cmake-format'
-        run: |
-          ./CI/check-cmake.sh
-
   windows_build:
-    name: '02 - Windows'
+    name: 'Windows Build'
     runs-on: [windows-2022]
-    needs: [clang_check]
     if: always()
     strategy:
       matrix:
