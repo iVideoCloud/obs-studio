@@ -1,5 +1,4 @@
-option(ENABLE_WINMF "Enable building with deprecated win-mf plugin" OFF)
-mark_as_advanced(ENABLE_WINMF)
+set(ENABLE_WINMF TRUE CACHE BOOL "Enables the now deprecated win-mf plugin")
 
 project(win-mf)
 
