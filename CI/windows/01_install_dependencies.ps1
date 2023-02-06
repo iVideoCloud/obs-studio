@@ -32,7 +32,7 @@ Function Install-obs-deps {
 
         Write-Step "Download..."
         $ProgressPreference = $(if ($Quiet.isPresent) { "SilentlyContinue" } else { "Continue" })
-        Invoke-WebRequest -Uri "https://github.com/obsproject/obs-deps/releases/download/${Version}/windows-deps-${Version}-${ArchSuffix}.zip" -UseBasicParsing -OutFile "windows-deps-${Version}-${ArchSuffix}.zip"
+        Invoke-WebRequest -Uri "https://github.com/obsproject/obs-deps/releases/download/${Version}/windows-deps-${Version}-x64.zip" -UseBasicParsing -OutFile "windows-deps-${Version}-${ArchSuffix}.zip"
         $ProgressPreference = "Continue"
 
         Write-Step "Unpack..."
